@@ -405,7 +405,7 @@ class GiftAudio {
     if(!this.src&&!this.ready)this.init().catch(()=>{});
     this.ctx?.resume().then(()=>this.notify()).catch(()=>{this.problem='blocked';this.notify();});this.sync();
   }
-  wantsMusic(){return this.unlocked&&this.src&&this.state.enabled&&!this.state.hidden&&this.state.stage!=='mic'&&this.state.modal!=='video-dialog';}
+  wantsMusic(){return this.unlocked&&this.src&&this.state.enabled&&!this.state.hidden&&this.state.modal!=='video-dialog';}
   setScene(state){
     const opening=this.state.stage!=='door-opening'&&state.stage==='door-opening';
     this.state={...this.state,...state};
@@ -462,7 +462,7 @@ const embedded=$('gift-data')?JSON.parse($('gift-data').textContent):null;
 const scene=new Universe($('universe'));
 const touchQuery=matchMedia('(pointer:coarse)'), reduced=matchMedia('(prefers-reduced-motion:reduce)');
 const FIRST=.08+.55*.055;
-const HOLD_SECONDS=4;
+const HOLD_SECONDS=2.8;
 const unfold=v=>{const t=clamp(v);return t*t*t*(10+t*(-15+t*6));};
 const S={stage:'loading',elapsed:0,time:0,p:0,targetP:0,velocity:0,touch:touchQuery.matches,match:null,target:null,autoFrom:null,tween:null,loading:false,round:0,modal:null,videoTime:0,focusIndex:0,viewerIndex:0,viewerModule:'journey',sound:true};
 const audio=new GiftAudio($('background-music'),$('door-audio'));
@@ -669,7 +669,8 @@ function wishDone(skip){if(S.stage!=='wish')return;const value=$('wish').value;i
 async function enableMic(){
   if(S.stage!=='mic'||mic)return;const round=S.round;$('enable-mic').disabled=true;
   try{
-    const stream=await navigator.mediaDevices.getUserMedia({audio:{autoGainControl:false,noiseSuppression:false,echoCancellation:false}});
+    // Keep the soundtrack playing while reducing speaker audio in breath input.
+    const stream=await navigator.mediaDevices.getUserMedia({audio:{autoGainControl:false,noiseSuppression:false,echoCancellation:true}});
     if(round!==S.round||S.stage!=='mic'){stream.getTracks().forEach(t=>t.stop());return;}
     const Context=globalThis.AudioContext||globalThis.webkitAudioContext;
     const ctx=new Context();await ctx.resume();const analyser=ctx.createAnalyser();analyser.fftSize=2048;ctx.createMediaStreamSource(stream).connect(analyser);
@@ -706,7 +707,7 @@ async function openVideo(){
 function closeVideo(){const v=$('birthday-video');S.videoTime=v.currentTime;v.pause();closeModal('video-dialog');$('watch').focus({preventScroll:true});}
 function updateMusic(){audio.setScene({enabled:S.sound,stage:S.stage,modal:S.modal,hidden:document.hidden});}
 function updateSoundUI(){
-  const playing=S.sound&&audio.playing,pausedForScene=S.stage==='mic'||S.modal==='video-dialog';
+  const playing=S.sound&&audio.playing,pausedForScene=S.modal==='video-dialog';
   const action=playing?'Sound off':S.sound&&audio.problem==='unavailable'?'Retry music':'Play music';
   $('sound').setAttribute('aria-pressed',String(S.sound));$('sound').setAttribute('aria-label',action);$('sound').title=action;
   $('sound-mark').setAttribute('d',playing?'M17 8c3 2 3 6 0 8m3-11c5 4 5 10 0 14':'m17 9 5 6m0-6-5 6');
