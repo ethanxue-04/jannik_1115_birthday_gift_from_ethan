@@ -1,0 +1,6 @@
+*.jpg -text
+*.mp4 -text
+*.mp3 -text
+*.wav -text
+*.html text eol=lf
+*.json text eol=lf

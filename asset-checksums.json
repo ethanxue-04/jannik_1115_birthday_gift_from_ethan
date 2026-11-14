@@ -1,0 +1,125 @@
+{
+  "version": "1.7.1",
+  "files": [
+    {
+      "path": "assets/space-journey/originals/P01.jpg",
+      "bytes": 2443805,
+      "sha256": "8ad9d6dba4dc5858679b315694c5015872a9a82aad96091fbf149d9f910044d1"
+    },
+    {
+      "path": "assets/space-journey/originals/P02.jpg",
+      "bytes": 9236517,
+      "sha256": "8095226600aa3467bd8bc5cffdf6075f9f6890e97b0f759fb41643b4144977df"
+    },
+    {
+      "path": "assets/space-journey/originals/P03.jpg",
+      "bytes": 270964,
+      "sha256": "33e99b43b6852dc5d76f159c3fadc6cea87518df896ff14ab137a46a6b8af568"
+    },
+    {
+      "path": "assets/space-journey/originals/P04.jpg",
+      "bytes": 2770909,
+      "sha256": "ed7702e10506189dc2852682fa7623452573672bc57973390bd3a39857fa0fa6"
+    },
+    {
+      "path": "assets/space-journey/originals/P05.jpg",
+      "bytes": 11894558,
+      "sha256": "e21ad79578ed355ca0e360c42c8b1f1f2c88c4a9b6127217f71105b91048287c"
+    },
+    {
+      "path": "assets/space-journey/originals/P06.jpg",
+      "bytes": 6969696,
+      "sha256": "a865f7dd9b8a21e8a30555fcff85d6609da49db8ae5e4eedd91ff0ab3eadae0d"
+    },
+    {
+      "path": "assets/space-journey/originals/P07.jpg",
+      "bytes": 123606,
+      "sha256": "b4251ca57a7e176080328d0c29d790bbc62699727e8290ee8ddcfab44e59ee4a"
+    },
+    {
+      "path": "assets/space-journey/originals/P08.jpg",
+      "bytes": 7287113,
+      "sha256": "57078b858862a0bd905f28302f2453af5ad93d6ccd1e70a8dbcc59e37bc9a11b"
+    },
+    {
+      "path": "assets/space-journey/originals/P09.jpg",
+      "bytes": 11671054,
+      "sha256": "9aa0d6ded00a94a3d9d2773e36aa9b153c1d4cd0387fd22329fccae2fb87522e"
+    },
+    {
+      "path": "assets/space-journey/originals/P10.jpg",
+      "bytes": 6803964,
+      "sha256": "56576597e9cbcc9ec5114cebfcfe7fbcaa2342fe62130d38e1fead6d360e429d"
+    },
+    {
+      "path": "assets/space-journey/originals/P11.jpg",
+      "bytes": 247348,
+      "sha256": "25203309b69a7bd3381f4561fa2778e1a50663a1d2b298693620b17689cf9527"
+    },
+    {
+      "path": "assets/space-journey/originals/P12.jpg",
+      "bytes": 7746332,
+      "sha256": "d391345f940266e85896b7779093699e9e7c12c818c09265b95e73ff638e21df"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R01.jpg",
+      "bytes": 19679969,
+      "sha256": "ec073513e7a9466ab6f782305b2d96e24f7c89083130680fa3d3917c0b08b8f6"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R02.jpg",
+      "bytes": 4356618,
+      "sha256": "ac6e1bc51551b1e6e65e45e092d0a59257169f0acf2e0c7b3b3f3249041dc41c"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R03.jpg",
+      "bytes": 11387423,
+      "sha256": "80ef21913348f4d8d1cb3426db2f178e19e4b6c0a40246e4e177d9377537d0ff"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R04.jpg",
+      "bytes": 3307449,
+      "sha256": "65178e6de137bbe146ad6e6b8118c3ab0e9e4dc0bf839f3a15d27624ef8dbf4d"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R05.jpg",
+      "bytes": 815883,
+      "sha256": "29f966731655eb2888a97ae0ca547a18534e05fb9d618b94674660e4efc364e1"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R06.jpg",
+      "bytes": 7737773,
+      "sha256": "1eb1c023ee38acbe7a5b24c93423a84161823caf572431abb1530197a7557522"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R07.jpg",
+      "bytes": 8937181,
+      "sha256": "b537d498c87724b94a14e6da93bcfb9d3009cb87c0ea115d4904fa173859efa6"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R08.jpg",
+      "bytes": 16378661,
+      "sha256": "5c1dc80a0c57fbcf4e836b81f5f8ae591b44821742724f497eab8089303ccfe6"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R09.jpg",
+      "bytes": 211454,
+      "sha256": "876f17bf79e71ec4bc47b723ac16229d4b02a8cbe200e4163944ac5a4eeba533"
+    },
+    {
+      "path": "assets/birthday-message/ethan-birthday.mp4",
+      "bytes": 79412627,
+      "sha256": "76d8bb27ebf0406d415f87ad8b2207a84869208a76a38aeea89555c3784e92d0"
+    },
+    {
+      "path": "assets/audio/i-like-me-better.mp3",
+      "bytes": 7900721,
+      "sha256": "3005d751fb513f4112d8ab0e5f6f814bf68f91f6e5c97958b35cb8ffa086c8ce"
+    },
+    {
+      "path": "assets/audio/door-open.wav",
+      "bytes": 164096,
+      "sha256": "55ec8be077528c5721bb8b680c7ded6ac5f6808020186ea13abb065425157425"
+    }
+  ]
+}
