@@ -1,5 +1,5 @@
 {
-  "version": "1.7.1",
+  "version": "1.8",
   "files": [
     {
       "path": "assets/space-journey/originals/P01.jpg",
@@ -105,6 +105,111 @@
       "path": "assets/ring-gallery/originals/R09.jpg",
       "bytes": 211454,
       "sha256": "876f17bf79e71ec4bc47b723ac16229d4b02a8cbe200e4163944ac5a4eeba533"
+    },
+    {
+      "path": "assets/space-journey/originals/P01.mobile.webp",
+      "bytes": 105746,
+      "sha256": "267cf1d956f187359d2a8d59369e41ee0465b3545bdd295e34fa72f16fab5c36"
+    },
+    {
+      "path": "assets/space-journey/originals/P02.mobile.webp",
+      "bytes": 308724,
+      "sha256": "ed0c1bfd275aeae70fd93b263b3a7bf391d06fd9462ee0eea6f34cf42de133e2"
+    },
+    {
+      "path": "assets/space-journey/originals/P03.mobile.webp",
+      "bytes": 132348,
+      "sha256": "78406de5fd494dc44edb906dbcacb58ed29bd2707978623f043c0b18e4794214"
+    },
+    {
+      "path": "assets/space-journey/originals/P04.mobile.webp",
+      "bytes": 71568,
+      "sha256": "fec0dbd91df97c9e6d23b8dc1218829c82eefe0ec13287da89a331b94498ecf9"
+    },
+    {
+      "path": "assets/space-journey/originals/P05.mobile.webp",
+      "bytes": 315388,
+      "sha256": "28f5360aa063224828e079a10200e714088117cd2c00bbbdf6dee4b1d2f4aa6e"
+    },
+    {
+      "path": "assets/space-journey/originals/P06.mobile.webp",
+      "bytes": 67620,
+      "sha256": "10cbe202be8e5c8e29639ae343c2eac7948f50123504d20ff5c00725c24cce2d"
+    },
+    {
+      "path": "assets/space-journey/originals/P07.mobile.webp",
+      "bytes": 84210,
+      "sha256": "8eac9660ef03203970cd4652b0764f7bc29b5176f28b081e4e73356ea4565278"
+    },
+    {
+      "path": "assets/space-journey/originals/P08.mobile.webp",
+      "bytes": 127868,
+      "sha256": "e7ff1c9a67790f05cc02dd6fba75b2462025d658ab4a1ec149ab9dbc1ae351bf"
+    },
+    {
+      "path": "assets/space-journey/originals/P09.mobile.webp",
+      "bytes": 64398,
+      "sha256": "0a790c6395dc0733a54e1f30ed0eab00ee1f934c7c4643f733264fdae6a72da5"
+    },
+    {
+      "path": "assets/space-journey/originals/P10.mobile.webp",
+      "bytes": 182496,
+      "sha256": "68b4f36abb25cb6a78eeee77c0b78a8fbdff859fe4bee74f3ab7296c844ffc09"
+    },
+    {
+      "path": "assets/space-journey/originals/P11.mobile.webp",
+      "bytes": 125052,
+      "sha256": "bb55b14c02b2d5dae0db2aaedc250a1efd27915053b93ab2953d38b2a0a864a0"
+    },
+    {
+      "path": "assets/space-journey/originals/P12.mobile.webp",
+      "bytes": 221338,
+      "sha256": "3602656488290645d0f19bb5583237cb95c79655bdafa9a819206e345e2d8fd0"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R01.mobile.webp",
+      "bytes": 237440,
+      "sha256": "cb6a3f732f6f04b8d78fb290709c1df5f2031c487dd370bb9ef999922b7ed1f8"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R02.mobile.webp",
+      "bytes": 79486,
+      "sha256": "f8f33873e832dc510c18fd836a08c964b7760c44d9317b09f266b800bd64c32e"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R03.mobile.webp",
+      "bytes": 87922,
+      "sha256": "120c1a25f20c1194ae3760e2fc5d770359712bc504f52c086b9ec0e48f0dddad"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R04.mobile.webp",
+      "bytes": 106126,
+      "sha256": "d40fb0e7a958fd5470df3663fe61ded61bb828b987e314df916df11768b6999e"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R05.mobile.webp",
+      "bytes": 112968,
+      "sha256": "67c1e0264f20564f99d95b1dd096045246a001a152d2aa6dfed91e778d9dcb5d"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R06.mobile.webp",
+      "bytes": 194038,
+      "sha256": "f85ef4ba3301f70b0cf8f8a5d8ebd8f6ed522f79bc59b071b9f20d077e80f224"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R07.mobile.webp",
+      "bytes": 150066,
+      "sha256": "86b653c66c46e2292200bb88d5e5067b3e0c3c52e11296fa3cef9ed90c777e28"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R08.mobile.webp",
+      "bytes": 97738,
+      "sha256": "7c6236fe6df0f6f34c7423b6eb7dc673aeb878845994e873b9eeb8c95cf84318"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R09.mobile.webp",
+      "bytes": 95764,
+      "sha256": "17bfde05e17deec415c385c32461463cb4c3270a33005ce460d96c4a25d3c0a7"
     },
     {
       "path": "assets/birthday-message/ethan-birthday.mp4",
