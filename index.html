@@ -509,12 +509,24 @@ function assetURL(photo,mobile=false){return localURL(mobile&&photo.mobilePath?p
 function loadImage(photo){
   if(!photo)return Promise.resolve();
   const found=images.get(photo.id);if(found)return found.promise;
-  const image=new Image();image.decoding='async';image.loading='lazy';image.fetchPriority='low';
-  const useMobile=Boolean(S.touch&&photo.mobilePath),entry={image,ready:false,promise:null,useMobile,attemptedFallback:false};
-  entry.promise=new Promise((resolve,reject)=>{image.onload=async()=>{try{await image.decode();}catch{}entry.ready=true;cardRevision++;resolve(image);};image.onerror=()=>{
-    if(entry.useMobile&&!entry.attemptedFallback){entry.attemptedFallback=true;entry.useMobile=false;image.src=assetURL(photo,false);return;}
-    images.delete(photo.id);reject(new Error('Photo unavailable'));
-  };image.src=assetURL(photo,useMobile);});
+  // These images are fetched before they enter the DOM. Browser lazy loading on
+  // detached images can prevent their requests from ever starting.
+  const image=new Image();image.decoding='async';image.loading='eager';image.fetchPriority='auto';
+  const useMobile=Boolean((touchQuery.matches||S.touch)&&photo.mobilePath),entry={image,ready:false,promise:null,useMobile};
+  const source=assetURL(photo,useMobile);let settled=false,loadTimer,decodeTimer;
+  entry.promise=new Promise((resolve,reject)=>{
+    const clean=()=>{clearTimeout(loadTimer);clearTimeout(decodeTimer);image.onload=null;image.onerror=null;};
+    const finish=()=>{if(settled)return;settled=true;clean();entry.ready=true;cardRevision++;resolve(image);};
+    const fail=()=>{if(settled)return;settled=true;clean();if(images.get(photo.id)===entry)images.delete(photo.id);image.removeAttribute('src');reject(new Error('Photo unavailable'));};
+    image.onload=()=>{
+      if(image.naturalWidth===0){fail();return;}
+      // A WebKit decode() promise must not indefinitely block the camera. The
+      // successful load can also be painted through normal asynchronous decoding.
+      decodeTimer=setTimeout(finish,1000);
+      try{Promise.resolve(image.decode()).then(finish,finish);}catch{finish();}
+    };
+    image.onerror=fail;loadTimer=setTimeout(fail,18000);image.src=source;
+  });
   images.set(photo.id,entry);return entry.promise;
 }
 function prefetch(){
@@ -527,10 +539,10 @@ function prefetch(){
 }
 function trimImages(){
   const isRing=S.stage==='ring',list=isRing?ring:journey,idx=currentIndex();
-  // Phones retain the current and next original plus any image still visible in a transition.
-  // Discard decoded off-stage originals; their original bytes remain in the HTTP cache.
+  // Phones retain the current and next display image plus any visible transition.
+  // Discard off-stage decoded images; file bytes may remain in the HTTP cache.
   const keep=new Set(list.slice(Math.max(0,idx-(S.touch?0:1)),idx+2).map(p=>p.id));if(!isRing&&idx>=10)keep.add('R1');
-  for(const [id,entry]of images)if(!keep.has(id)&&entry.ready&&!cards.has(id)){entry.image.src='';images.delete(id);}
+  for(const [id,entry]of images)if(!keep.has(id)&&entry.ready&&!cards.has(id)){entry.image.removeAttribute('src');images.delete(id);}
 }
 async function requireAt(p){
   let list,idx;
@@ -544,7 +556,12 @@ async function requireAt(p){
   if(S.loading)return false;
   const round=S.round,oldStage=S.stage;S.loading=true;status('Loading photo…');updateUI();
   try{await Promise.all(needed.map(loadImage));if(round===S.round&&oldStage===S.stage){S.loading=false;status();updateUI();return true;}}
-  catch{if(round===S.round){S.loading=false;S.targetP=S.p;S.velocity=0;status('The photo couldn’t load. Try again.',()=>{status();requireAt(p).then(ok=>{if(ok){S.targetP=p;updateUI();}});});updateUI();}}
+  catch{if(round===S.round){S.loading=false;S.targetP=S.p;S.velocity=0;status('The photo is taking too long. Check your connection and try again.',()=>{
+    status();
+    if(S.stage==='universe-intro'){enterUniverse();return;}
+    if(S.stage==='journey'&&!S.tween&&S.touch){advance();return;}
+    requireAt(p).then(ok=>{if(ok){S.targetP=p;updateUI();}});
+  });updateUI();}}
   return false;
 }
 function setProgress(p){
@@ -603,7 +620,7 @@ function card(photo,isRing){
   if(cards.has(photo.id))return cards.get(photo.id);
   const f=document.createElement('figure');f.className='memory-card'+(isRing?' ring-card':'');f.dataset.id=photo.id;
   const wrap=document.createElement('div');wrap.className='photo-wrap';
-  const img=images.get(photo.id)?.image||document.createElement('img');img.alt=photo.alt;if(!img.src)img.src=assetURL(photo,S.touch);img.draggable=false;img.loading='lazy';img.decoding='async';wrap.append(img);f.append(wrap);
+  const img=images.get(photo.id)?.image||document.createElement('img');img.alt=photo.alt;if(!img.src)img.src=assetURL(photo,touchQuery.matches||S.touch);img.draggable=false;img.loading='eager';img.decoding='async';wrap.append(img);f.append(wrap);
   if(!isRing){const cap=document.createElement('figcaption');cap.textContent=photo.caption;cap.tabIndex=0;cap.setAttribute('aria-label','Memory caption');cap.addEventListener('wheel',e=>e.stopPropagation(),{passive:true});cap.addEventListener('pointerdown',e=>e.stopPropagation());f.append(cap);}
   $('photo-stage').append(f);cards.set(photo.id,f);return f;
 }
