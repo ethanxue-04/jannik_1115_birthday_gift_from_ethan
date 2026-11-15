@@ -1,5 +1,5 @@
 {
-  "version": "1.9",
+  "version": "2.0",
   "files": [
     {
       "path": "assets/space-journey/originals/P01.jpg",
@@ -212,6 +212,111 @@
       "sha256": "17bfde05e17deec415c385c32461463cb4c3270a33005ce460d96c4a25d3c0a7"
     },
     {
+      "path": "assets/space-journey/originals/P01.preview-v2.webp",
+      "bytes": 34884,
+      "sha256": "ff2b31f77add64e0d44f38bea8d74b8017fc01666047f1173afea738298ea2e0"
+    },
+    {
+      "path": "assets/space-journey/originals/P02.preview-v2.webp",
+      "bytes": 89458,
+      "sha256": "d0c5482d35041230ef895cfb5a65e514b6666998ab534cea92f948756487d926"
+    },
+    {
+      "path": "assets/space-journey/originals/P03.preview-v2.webp",
+      "bytes": 42220,
+      "sha256": "f30e9278cf99f6d972928e03e49285dec3a5f943f4711c2cb94079599e712284"
+    },
+    {
+      "path": "assets/space-journey/originals/P04.preview-v2.webp",
+      "bytes": 22850,
+      "sha256": "77b26420a62f161b7af9327eb162c62f0f78cc40a1ff56b4abbc905574a8e38c"
+    },
+    {
+      "path": "assets/space-journey/originals/P05.preview-v2.webp",
+      "bytes": 74938,
+      "sha256": "5878eb10081109d4cca1ddd24c074e58ffe8144dc306d0786dcfc369b62993d1"
+    },
+    {
+      "path": "assets/space-journey/originals/P06.preview-v2.webp",
+      "bytes": 24588,
+      "sha256": "4723043391aa509def75aabc5d6b4f5cc00d1b59571e0ff4db86af9e0dbce176"
+    },
+    {
+      "path": "assets/space-journey/originals/P07.preview-v2.webp",
+      "bytes": 29928,
+      "sha256": "2bb2c5362e59f2e7761735d976967a944f6d73a9455ba64feeced225cb6e85c3"
+    },
+    {
+      "path": "assets/space-journey/originals/P08.preview-v2.webp",
+      "bytes": 34474,
+      "sha256": "f010119a6c17cbb9d1f63edc4940fd59168e39a052b0b30337b6d4b97782b86c"
+    },
+    {
+      "path": "assets/space-journey/originals/P09.preview-v2.webp",
+      "bytes": 19314,
+      "sha256": "91e9e53acb5846fb7fbb3fda791626ef0054ca9cd1449292eda9e55027dea35e"
+    },
+    {
+      "path": "assets/space-journey/originals/P10.preview-v2.webp",
+      "bytes": 59414,
+      "sha256": "b66ebd8f0b6f83f5171e5335c0b3747c2d822c24e8d2e52011dff64698a5d8a4"
+    },
+    {
+      "path": "assets/space-journey/originals/P11.preview-v2.webp",
+      "bytes": 33140,
+      "sha256": "262f7a4ed0b10e3895e7e922f5e754ecd4b9fa34e080652a769c1b902847981a"
+    },
+    {
+      "path": "assets/space-journey/originals/P12.preview-v2.webp",
+      "bytes": 67644,
+      "sha256": "ecaeaf3faf954ee2f22777e3e9f7a3bb43a0fc716efce80f85d2ea932413a3b7"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R01.preview-v2.webp",
+      "bytes": 72944,
+      "sha256": "e8cced324a632f12b8b6b3660779f8345d006852b994dd0c74e344118db808e0"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R02.preview-v2.webp",
+      "bytes": 30424,
+      "sha256": "27f84aedb75df8306426030c5c865e73ab9677f48ef2b6be463b2615ba521672"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R03.preview-v2.webp",
+      "bytes": 29592,
+      "sha256": "c6f9ff890f54fd55ba99e76d651895aa6260240051044617d919edfd7400b807"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R04.preview-v2.webp",
+      "bytes": 36928,
+      "sha256": "0b260e1cd2e2a97a029931cc20117872799455bb56856c6f5c927e02c3e99f66"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R05.preview-v2.webp",
+      "bytes": 38538,
+      "sha256": "4b0a2e87dbd39eeb99dc8cdba35a75fe612930f5a6bb93b0e70b1e4ed15b79df"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R06.preview-v2.webp",
+      "bytes": 54558,
+      "sha256": "e99cf3b1dea580d6cf186098217319b252ad7ead0c98b02a569239a8f5f77206"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R07.preview-v2.webp",
+      "bytes": 41166,
+      "sha256": "98ac76263b8807d59b3bf33370fe734bf234add65a6152e8ed424aaf5cef6cc8"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R08.preview-v2.webp",
+      "bytes": 29440,
+      "sha256": "c1d9479f50dbb5e574059a5ffe3e1534e5896d88165bcb89ed3f094e34b85b37"
+    },
+    {
+      "path": "assets/ring-gallery/originals/R09.preview-v2.webp",
+      "bytes": 38104,
+      "sha256": "71b8fdbcd01bb15ca0dca0e4a6f1d0f564d5a5e778eac40dd58c88671a0f23d5"
+    },
+    {
       "path": "assets/birthday-message/ethan-birthday.mp4",
       "bytes": 79412627,
       "sha256": "76d8bb27ebf0406d415f87ad8b2207a84869208a76a38aeea89555c3784e92d0"
@@ -230,6 +335,11 @@
       "path": "assets/audio/door-open.wav",
       "bytes": 164096,
       "sha256": "55ec8be077528c5721bb8b680c7ded6ac5f6808020186ea13abb065425157425"
+    },
+    {
+      "path": "assets/birthday-message/ethan-birthday-web-v2.mp4",
+      "bytes": 26359790,
+      "sha256": "c344ceb1413fcbe1146fa7ef09cffa149e33d71e27a928ce53ba62436ea15772"
     }
   ]
 }
