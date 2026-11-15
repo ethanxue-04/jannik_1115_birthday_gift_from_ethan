@@ -1,5 +1,5 @@
 {
-  "version": "1.8.1",
+  "version": "1.9",
   "files": [
     {
       "path": "assets/space-journey/originals/P01.jpg",
@@ -215,6 +215,11 @@
       "path": "assets/birthday-message/ethan-birthday.mp4",
       "bytes": 79412627,
       "sha256": "76d8bb27ebf0406d415f87ad8b2207a84869208a76a38aeea89555c3784e92d0"
+    },
+    {
+      "path": "assets/birthday-message/ethan-birthday-ios-v1.mp4",
+      "bytes": 79412355,
+      "sha256": "c69168601853311bce7005e885e4d0726ab7436f5fbefa2c9fd9a12cd751724d"
     },
     {
       "path": "assets/audio/i-like-me-better.mp3",

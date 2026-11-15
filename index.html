@@ -103,6 +103,22 @@ body[data-stage="ring"] .memory-actions{bottom:max(78px,12.5vh,calc(env(safe-are
 dialog{position:fixed;inset:0 0 auto;margin:0 auto;max-height:calc(var(--viewport-height,100vh) - 24px);max-height:calc(var(--viewport-height,100dvh) - 24px);overflow:auto}
 @supports not (backdrop-filter:blur(1px)){.memory-card{background:linear-gradient(145deg,#a39cce23,#10182e42)}.ring-card{background:transparent}}
 
+/* Keep the dedication visible in short in-app browser viewports. */
+.masthead{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px}
+.identity{min-width:0}.identity>div{min-width:0}.seal{flex:none}
+.identity-sub{display:block;white-space:nowrap;line-height:1.4}
+.header-actions{flex-shrink:0}
+.masthead #back .back-label{margin:0}.masthead #back .back-arrow{margin-left:8px;font-family:Arial,sans-serif}
+.video-dialog #video-direct{display:inline-block;color:#f3d6f1}
+.video-heading>div{min-width:0}.video-heading .close-button{flex-shrink:0}
+@media(max-width:400px){
+  .masthead{left:max(16px,env(safe-area-inset-left));right:max(16px,env(safe-area-inset-right))}
+  .masthead .header-actions{gap:8px}
+  .masthead #back{width:44px;height:44px;display:grid;place-items:center;padding:0}
+  .masthead #back .back-label{display:none}.masthead #back .back-arrow{margin:0;font-size:18px}
+}
+@media(max-width:760px){.identity-sub{display:block}.video-dialog{min-width:0;width:calc(100vw - 24px);max-width:560px}.video-frame video{width:100%;max-width:100%;height:min(61dvh,640px);height:min(calc(var(--viewport-height,100vh) * .61),640px)}.video-heading{gap:12px}}
+
 </style>
 </head>
 <body data-stage="loading">
@@ -111,8 +127,8 @@ dialog{position:fixed;inset:0 0 auto;margin:0 auto;max-height:calc(var(--viewpor
     <audio id="door-audio" preload="auto" hidden></audio>
     <canvas id="universe" aria-hidden="true"></canvas>
     <header id="gift-header" class="masthead">
-      <div class="identity"><span class="seal" aria-hidden="true">j.</span><div><span class="eyebrow">A LITTLE UNIVERSE</span><span class="identity-sub">for Jannik, from Ethan</span></div></div>
-      <div class="header-actions"><button id="back" class="text-button" hidden>Back to memories <span aria-hidden="true">↗</span></button><button id="sound" class="icon-button" aria-label="Play music" aria-pressed="true" title="Play music"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path id="sound-mark" d="m17 9 5 6m0-6-5 6"/></svg></button><span id="music-prompt" class="music-prompt" role="status">Click for music</span></div>
+      <div class="identity"><span class="seal" aria-hidden="true">j.</span><div><span class="eyebrow">A LITTLE UNIVERSE</span><span class="identity-sub">For Jannik, from Ethan</span></div></div>
+      <div class="header-actions"><button id="back" class="text-button" aria-label="Back to memories" hidden><span class="back-label">Back to memories</span><span class="back-arrow" aria-hidden="true">↗&#xfe0e;</span></button><button id="sound" class="icon-button" aria-label="Play music" aria-pressed="true" title="Play music"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path id="sound-mark" d="m17 9 5 6m0-6-5 6"/></svg></button><span id="music-prompt" class="music-prompt" role="status">Click for music</span></div>
     </header>
     <div id="loading" class="loading"><span class="tiny-spark">✦</span><p>A little light for you…</p><button id="retry-init" class="text-button" hidden>Try again</button></div>
     <section id="greeting" aria-label="Happy birthday Jannik! ——your friend Ethan" hidden>
@@ -134,7 +150,7 @@ dialog{position:fixed;inset:0 0 auto;margin:0 auto;max-height:calc(var(--viewpor
   </dialog>
   <dialog id="mic-dialog" class="glass-dialog mic-dialog" aria-labelledby="mic-title"><div class="dialog-body"><span class="eyebrow">ONE BREATH. A NEW BEGINNING.</span><div class="breath-flame" aria-hidden="true"><span></span></div><h2 id="mic-title">Let your wish fly.</h2><p id="wish-safe">Your wish is safe. Now blow out the candle.</p><p id="mic-status" class="mic-status">A little breath is all it takes.</p><button id="enable-mic" class="primary">Enable microphone</button><button id="blow" class="secondary">Blow out the candle</button><p class="privacy-note">A quiet moment, just for you.</p></div></dialog>
   <dialog id="photo-dialog" class="glass-dialog photo-dialog" aria-label="Photo viewer"><button class="close-button" id="close-photo" aria-label="Close">✕</button><div class="photo-view-scroll"><img id="full-photo" alt=""><p id="full-caption"></p></div><div class="viewer-footer"><button id="full-previous" class="text-button">← Previous</button><span id="full-counter" class="eyebrow"></span><button id="full-next" class="text-button">Next →</button></div></dialog>
-  <dialog id="video-dialog" class="glass-dialog video-dialog" aria-labelledby="video-title"><div class="video-heading"><div><span class="eyebrow">A LITTLE SOMETHING FROM ME</span><h2 id="video-title">A birthday message from Ethan</h2></div><button id="close-video" class="close-button" aria-label="Close">✕</button></div><div class="video-frame"><video id="birthday-video" controls playsinline webkit-playsinline preload="none" aria-label="A birthday message from Ethan"></video><button id="video-play" class="video-play" hidden aria-label="Play">▷<span>Play</span></button></div><p id="video-status" role="status" hidden>Loading video…</p><button id="video-retry" class="text-button" hidden>Try again</button><button id="watch-again" class="text-button" hidden>Watch again ↻</button></dialog>
+  <dialog id="video-dialog" class="glass-dialog video-dialog" aria-labelledby="video-title"><div class="video-heading"><div><span class="eyebrow">A LITTLE SOMETHING FROM ME</span><h2 id="video-title">A birthday message from Ethan</h2></div><button id="close-video" class="close-button" aria-label="Close">✕</button></div><div class="video-frame"><video id="birthday-video" controls playsinline webkit-playsinline preload="none" aria-label="A birthday message from Ethan"></video><button id="video-play" class="video-play" hidden aria-label="Play">▷<span>Play</span></button></div><p id="video-status" role="status" hidden>Loading video…</p><button id="video-retry" class="text-button" hidden>Try again</button><a id="video-direct" class="text-button" target="_blank" rel="noopener" hidden>Open video directly ↗&#xfe0e;</a><button id="watch-again" class="text-button" hidden>Watch again ↻</button></dialog>
 <script id="gift-data" type="application/json">{"journey":{"photos":[{"id":"P1","order":1,"path":"assets/space-journey/originals/P01.jpg","mobilePath":"assets/space-journey/originals/P01.mobile.webp","caption":"First time hang out in the Japanese bar🍺","alt":"First time hang out in the Japanese bar🍺","width":3088,"height":2316,"exifOrientation":6,"mobileWidth":1080,"mobileHeight":1440},{"id":"P2","order":2,"path":"assets/space-journey/originals/P02.jpg","mobilePath":"assets/space-journey/originals/P02.mobile.webp","caption":"Suzhou trip! You’re eating snacks and giving a middle finger to the camera","alt":"Suzhou trip! You’re eating snacks and giving a middle finger to the camera","width":3072,"height":4096,"exifOrientation":0,"mobileWidth":1080,"mobileHeight":1440},{"id":"P3","order":3,"path":"assets/space-journey/originals/P03.jpg","mobilePath":"assets/space-journey/originals/P03.mobile.webp","caption":"Rooftop party in the bond at NOVA","alt":"Rooftop party in the bond at NOVA","width":1279,"height":1706,"exifOrientation":1,"mobileWidth":1080,"mobileHeight":1440},{"id":"P4","order":4,"path":"assets/space-journey/originals/P04.jpg","mobilePath":"assets/space-journey/originals/P04.mobile.webp","caption":"A casual drink night in the fancy apartment and I brought my 3 friends here","alt":"A casual drink night in the fancy apartment and I brought my 3 friends here","width":4032,"height":3024,"exifOrientation":6,"mobileWidth":1080,"mobileHeight":1440},{"id":"P5","order":5,"path":"assets/space-journey/originals/P05.jpg","mobilePath":"assets/space-journey/originals/P05.mobile.webp","caption":"A random weekday when you’re enjoying sunshine bath during lunch break lol 😂😂","alt":"A random weekday when you’re enjoying sunshine bath during lunch break lol 😂😂","width":4096,"height":3072,"exifOrientation":0,"mobileWidth":1440,"mobileHeight":1080},{"id":"P6","order":6,"path":"assets/space-journey/originals/P06.jpg","mobilePath":"assets/space-journey/originals/P06.mobile.webp","caption":"Group pic at my most unforgettable birthday!🎊","alt":"Group pic at my most unforgettable birthday!🎊","width":4096,"height":3072,"exifOrientation":1,"mobileWidth":1440,"mobileHeight":1080},{"id":"P7","order":7,"path":"assets/space-journey/originals/P07.jpg","mobilePath":"assets/space-journey/originals/P07.mobile.webp","caption":"Biggest KTV event which gathered over 20 people","alt":"Biggest KTV event which gathered over 20 people","width":1200,"height":1600,"exifOrientation":1,"mobileWidth":1080,"mobileHeight":1440},{"id":"P8","order":8,"path":"assets/space-journey/originals/P08.jpg","mobilePath":"assets/space-journey/originals/P08.mobile.webp","caption":"Group pic with people we onboard together!","alt":"Group pic with people we onboard together!","width":5472,"height":3648,"exifOrientation":1,"mobileWidth":1440,"mobileHeight":960},{"id":"P9","order":9,"path":"assets/space-journey/originals/P09.jpg","mobilePath":"assets/space-journey/originals/P09.mobile.webp","caption":"Flight to Zhangjiajie!✈️","alt":"Flight to Zhangjiajie!✈️","width":4896,"height":6528,"exifOrientation":0,"mobileWidth":1080,"mobileHeight":1440},{"id":"P10","order":10,"path":"assets/space-journey/originals/P10.jpg","mobilePath":"assets/space-journey/originals/P10.mobile.webp","caption":"Fantastic view of Zhangjiajie!⛰","alt":"Fantastic view of Zhangjiajie!⛰","width":4096,"height":3072,"exifOrientation":0,"mobileWidth":1440,"mobileHeight":1080},{"id":"P11","order":11,"path":"assets/space-journey/originals/P11.jpg","mobilePath":"assets/space-journey/originals/P11.mobile.webp","caption":"Group pic on your last day at PCN😭😭","alt":"Group pic on your last day at PCN😭😭","width":1706,"height":1279,"exifOrientation":1,"mobileWidth":1440,"mobileHeight":1080},{"id":"P12","order":12,"path":"assets/space-journey/originals/P12.jpg","mobilePath":"assets/space-journey/originals/P12.mobile.webp","caption":"Last group pic and the last KTV event before your departure. We’re happy and sad and you got totally drunk while confusing and getting everybody worried that night haha😆😆","alt":"Last group pic and the last KTV event before your departure. We’re happy and sad and you got totally drunk while confusing and getting everybody worried that night haha😆😆","width":5712,"height":4284,"exifOrientation":1,"mobileWidth":1440,"mobileHeight":1080}]},"ring":{"photos":[{"id":"R1","order":1,"path":"assets/ring-gallery/originals/R01.jpg","mobilePath":"assets/ring-gallery/originals/R01.mobile.webp","caption":null,"alt":"Friends posing outdoors beneath trees.","width":3768,"height":3071,"exifOrientation":1,"mobileWidth":1440,"mobileHeight":1174},{"id":"R2","order":2,"path":"assets/ring-gallery/originals/R02.jpg","mobilePath":"assets/ring-gallery/originals/R02.mobile.webp","caption":null,"alt":"Friends gathering in an apartment at night.","width":3672,"height":4896,"exifOrientation":7,"mobileWidth":1440,"mobileHeight":1080},{"id":"R3","order":3,"path":"assets/ring-gallery/originals/R03.jpg","mobilePath":"assets/ring-gallery/originals/R03.mobile.webp","caption":null,"alt":"Friends posing on a rooftop with a city skyline at night.","width":3072,"height":4096,"exifOrientation":1,"mobileWidth":1080,"mobileHeight":1440},{"id":"R4","order":4,"path":"assets/ring-gallery/originals/R04.jpg","mobilePath":"assets/ring-gallery/originals/R04.mobile.webp","caption":null,"alt":"Friends sitting together in an apartment during the day.","width":4096,"height":3072,"exifOrientation":0,"mobileWidth":1440,"mobileHeight":1080},{"id":"R5","order":5,"path":"assets/ring-gallery/originals/R05.jpg","mobilePath":"assets/ring-gallery/originals/R05.mobile.webp","caption":null,"alt":"Friends posing with drinks in a bar.","width":1280,"height":1707,"exifOrientation":1,"mobileWidth":1080,"mobileHeight":1440},{"id":"R6","order":6,"path":"assets/ring-gallery/originals/R06.jpg","mobilePath":"assets/ring-gallery/originals/R06.mobile.webp","caption":null,"alt":"A group posing in front of racing posters in an office.","width":4032,"height":3024,"exifOrientation":0,"mobileWidth":1440,"mobileHeight":1080},{"id":"R7","order":7,"path":"assets/ring-gallery/originals/R07.jpg","mobilePath":"assets/ring-gallery/originals/R07.mobile.webp","caption":null,"alt":"Friends gathered around a long restaurant table.","width":5393,"height":4045,"exifOrientation":0,"mobileWidth":1440,"mobileHeight":1080},{"id":"R8","order":8,"path":"assets/ring-gallery/originals/R08.jpg","mobilePath":"assets/ring-gallery/originals/R08.mobile.webp","caption":null,"alt":"Friends taking a group selfie at a restaurant table.","width":4896,"height":6528,"exifOrientation":0,"mobileWidth":1080,"mobileHeight":1440},{"id":"R9","order":9,"path":"assets/ring-gallery/originals/R09.jpg","mobilePath":"assets/ring-gallery/originals/R09.mobile.webp","caption":null,"alt":"Friends taking a group selfie on a street at night.","width":1279,"height":1706,"exifOrientation":1,"mobileWidth":1080,"mobileHeight":1440}]},"music":{"src":"assets/audio/i-like-me-better.mp3","volume":0.2,"loop":true,"door":{"src":"assets/audio/door-open.wav","volume":0.28}}}</script>
 <script id="gift-app">
 (()=>{
@@ -164,7 +180,7 @@ class Universe {
     this.resize();
   }
   random(){this.seed=(this.seed*1664525+1013904223)>>>0;return this.seed/4294967296;}
-  resize(){this.w=innerWidth;this.h=innerHeight;this.archTexture=null;const dpr=Math.min(devicePixelRatio||1,1.6);this.canvas.width=Math.round(this.w*dpr);this.canvas.height=Math.round(this.h*dpr);this.ctx.setTransform(dpr,0,0,dpr,0,0);}
+  resize(){const bounds=this.canvas.getBoundingClientRect?.();this.w=bounds?.width||innerWidth;this.h=bounds?.height||innerHeight;this.archTexture=null;const dpr=Math.min(devicePixelRatio||1,1.6);this.canvas.width=Math.round(this.w*dpr);this.canvas.height=Math.round(this.h*dpr);this.ctx.setTransform(dpr,0,0,dpr,0,0);}
   layout(){
     const{w,h}=this,mobile=w<600,cakeW=mobile?Math.min(w*.4,175):Math.min(w*.18,260);
     const cakeH=Math.min(h*.265,cakeW*(mobile?1.2:.94)),bottom=h*.89,upperTop=bottom-cakeH;
@@ -252,8 +268,9 @@ class Universe {
     const c=this.ctx,{w,h}=this,mobile=w<600;c.save();c.globalAlpha*=alpha;
     for(const side of [-1,1]){
       const rx=mobile?w*.98:w*.62,ry=Math.max(h*.83,rx*.78),edge=mobile?w*.06:w*.16;
-      const cx=side<0?edge-rx:w-edge+rx,cy=h*.49,angle=progress*Math.PI*2.8*side;
-      c.save();c.translate(cx,cy);
+      const cx=side<0?edge-rx:w-edge+rx,cy=this.ringCenter??h*.49,angle=progress*Math.PI*2.8;
+      // Reflect the same geometry, so phase, teeth and highlights stay symmetric.
+      c.save();c.translate(cx,cy);c.scale(side<0?1:-1,1);
       // Three nested rims, a dotted orbit, and radial teeth echo the reference's celestial gears.
       for(const [offset,color,width]of[[0,'#d4d6ffb0',1.25],[10,'#aeb9f344',1],[-8,'#d3b9ed48',.65]]){
         c.strokeStyle=color;c.lineWidth=width;c.beginPath();c.ellipse(0,0,rx+offset,ry+offset,0,0,Math.PI*2);c.stroke();
@@ -263,7 +280,8 @@ class Universe {
         const a=i/144*Math.PI*2+angle,cos=Math.cos(a),sin=Math.sin(a),major=i%12===0,medium=i%4===0;
         const len=major?28:medium?14:5;
         const x=cos*rx,y=sin*ry;
-        if(cx+x< -55||cx+x>w+55||cy+y< -55||cy+y>h+55)continue;
+        const screenX=cx+x*(side<0?1:-1);
+        if(screenX< -55||screenX>w+55||cy+y< -55||cy+y>h+55)continue;
         c.strokeStyle=major?'#e7ddffcc':medium?'#d1d9ff90':'#c9ccf94d';c.lineWidth=major?1.7:.85;
         c.beginPath();c.moveTo(cos*(rx-len),sin*(ry-len));c.lineTo(cos*(rx+4),sin*(ry+4));c.stroke();
         if(major)this.flare(x,y,mobile?6:8,.95);
@@ -463,6 +481,8 @@ const scene=new Universe($('universe'));
 const touchQuery=matchMedia('(pointer:coarse)'), reduced=matchMedia('(prefers-reduced-motion:reduce)');
 const FIRST=.08+.55*.055;
 const HOLD_SECONDS=2.8;
+const VIDEO_PATH='assets/birthday-message/ethan-birthday-ios-v1.mp4';
+let videoWaitTimer=null,videoAttempt=0;
 const unfold=v=>{const t=clamp(v);return t*t*t*(10+t*(-15+t*6));};
 const S={stage:'loading',elapsed:0,time:0,p:0,targetP:0,velocity:0,touch:touchQuery.matches,match:null,target:null,autoFrom:null,tween:null,loading:false,round:0,modal:null,videoTime:0,focusIndex:0,viewerIndex:0,viewerModule:'journey',sound:true};
 const audio=new GiftAudio($('background-music'),$('door-audio'));
@@ -473,7 +493,7 @@ const isControl=target=>target instanceof Element && target.closest('button,inpu
 const say=text=>{if(text!==lastAnnounced){$('live').textContent=text;lastAnnounced=text;}};
 function show(id,on){$(id).hidden=!on;}
 function status(message='',retry=null){show('status',!!message);$('status-text').textContent=message;photoRetry=retry;show('retry-photo',!!retry);}
-function stage(name){S.stage=name;S.elapsed=0;document.body.dataset.stage=name;updateUI();updateMusic();}
+function stage(name){S.stage=name;S.elapsed=0;document.body.dataset.stage=name;updateUI();updateMusic();if(name==='door-opening')prepareVideo();}
 function hint(){if(S.stage==='entering')return 'A little closer to our memories…';if(S.stage==='journey')return S.touch?(S.tween?'Bringing the next memory closer…':'Tap for the next memory.'):'Scroll up to explore, Scroll down to look back';if(S.stage==='ring')return S.touch?'Swipe up to continue. Swipe down to look back.':'Scroll up to explore, Scroll down to look back';return '';}
 function updateUI(){
   const st=S.stage,mem=st==='journey'||st==='ring';
@@ -503,6 +523,7 @@ function measureRingLayout(){
   const bottom=$('memory-actions').getBoundingClientRect().top-12;
   const height=Math.max(48,bottom-top),style=$('photo-stage').style;
   style.setProperty('--ring-height',`${height}px`);style.setProperty('--ring-center',`${top+height/2}px`);
+  scene.ringCenter=top+height/2;
 }
 function currentIndex(p=S.p){return S.stage==='ring'?clamp(Math.floor((p-.74)/.2*ring.length),0,ring.length-1):clamp(Math.floor((p-.08)/.66*journey.length),0,journey.length-1);}
 function assetURL(photo,mobile=false){return localURL(mobile&&photo.mobilePath?photo.mobilePath:photo.path);}
@@ -696,15 +717,45 @@ async function openPhoto(){
 }
 async function updateViewer(){const list=S.viewerModule==='ring'?ring:journey,p=list[S.viewerIndex];$('full-photo').src=assetURL(p);$('full-photo').alt=p.alt;$('full-caption').textContent=p.caption||'';show('full-caption',!!p.caption);$('full-counter').textContent=`${String(S.viewerIndex+1).padStart(2,'0')} / ${String(list.length).padStart(2,'0')}`;$('full-previous').disabled=S.viewerIndex===0;$('full-next').disabled=S.viewerIndex===list.length-1;$('photo-dialog').querySelector('.photo-view-scroll').scrollTop=0;}
 function closePhoto(){closeModal('photo-dialog');$('full-photo').removeAttribute('src');$('view-photo').focus({preventScroll:true});}
-async function openVideo(){
-  if(S.stage!=='door'||S.modal)return;const v=$('birthday-video');openModal('video-dialog');show('video-status',true);$('video-status').textContent='Loading video…';show('video-retry',false);
-  if(!v.getAttribute('src')){v.src=localURL('assets/birthday-message/ethan-birthday.mp4');v.load();}
-  if(v.readyState>=1&&Math.abs(v.currentTime-S.videoTime)>.5)v.currentTime=S.videoTime;
-  const finished=v.ended||(Number.isFinite(v.duration)&&S.videoTime>=v.duration-.1);
-  show('watch-again',finished);if(finished){show('video-play',false);show('video-status',false);return;}
-  try{await v.play();show('video-play',false);}catch{show('video-play',true);show('video-status',false);}
+function prepareVideo(retry=false){
+  const v=$('birthday-video');$('video-direct').href=localURL(VIDEO_PATH);
+  if(!v.getAttribute('src')||retry){
+    v.preload='metadata';v.src=localURL(VIDEO_PATH)+(retry?`?retry=${videoAttempt}`:'');v.load();
+  }
 }
-function closeVideo(){const v=$('birthday-video');S.videoTime=v.currentTime;v.pause();closeModal('video-dialog');$('watch').focus({preventScroll:true});}
+function clearVideoWait(){clearTimeout(videoWaitTimer);videoWaitTimer=null;}
+function waitForVideo(){
+  clearVideoWait();show('video-status',true);$('video-status').textContent='Loading video…';
+  videoWaitTimer=setTimeout(()=>{
+    if(S.modal!=='video-dialog')return;
+    $('video-status').textContent='This is taking a little longer. Try again, or open the video directly.';
+    show('video-status',true);show('video-retry',true);show('video-direct',true);
+  },25000);
+}
+function videoFailure(){
+  if(S.modal!=='video-dialog')return;clearVideoWait();show('video-play',false);show('video-status',true);show('video-retry',true);show('video-direct',true);
+  $('video-status').textContent=$('birthday-video').error?.code===2?'The connection was interrupted. Try again.':'The video couldn’t load. Try again, or open it directly.';
+}
+async function playVideo(retry=false){
+  if(S.modal!=='video-dialog')return;const v=$('birthday-video'),attempt=++videoAttempt;
+  show('video-play',false);show('video-retry',false);show('video-direct',false);show('watch-again',false);
+  prepareVideo(retry);waitForVideo();
+  if(v.readyState>=1&&Math.abs(v.currentTime-S.videoTime)>.5){try{v.currentTime=S.videoTime;}catch{}}
+  // Invoke play inside the same click, keeping the iOS user-gesture permission.
+  try{await v.play();if(attempt!==videoAttempt)return;if(S.modal!=='video-dialog'){v.pause();return;}show('video-play',false);}
+  catch(error){
+    if(attempt!==videoAttempt||S.modal!=='video-dialog')return;
+    if(error.name==='NotAllowedError'){clearVideoWait();show('video-play',true);show('video-status',false);}
+    else if(error.name!=='AbortError'||v.error)videoFailure();
+  }
+}
+async function openVideo(){
+  if(S.stage!=='door'||S.modal)return;const v=$('birthday-video');openModal('video-dialog');
+  const finished=v.ended||(Number.isFinite(v.duration)&&S.videoTime>=v.duration-.1);
+  show('watch-again',finished);if(finished){show('video-play',false);show('video-status',false);show('video-retry',false);show('video-direct',false);return;}
+  await playVideo(Boolean(v.error));
+}
+function closeVideo(){const v=$('birthday-video');videoAttempt++;clearVideoWait();S.videoTime=v.currentTime;v.pause();closeModal('video-dialog');$('watch').focus({preventScroll:true});}
 function updateMusic(){audio.setScene({enabled:S.sound,stage:S.stage,modal:S.modal,hidden:document.hidden});}
 function updateSoundUI(){
   const playing=S.sound&&audio.playing,pausedForScene=S.modal==='video-dialog';
@@ -719,7 +770,7 @@ function toggleSound(){
   if(S.sound&&!audio.playing){updateMusic();audio.unlock();return;}
   S.sound=!S.sound;updateMusic();audio.unlock();
 }
-function replay(){S.round++;stopMic();S.tween=null;S.loading=false;status();dialogs.forEach(d=>d.close());S.modal=null;const v=$('birthday-video');v.pause();v.currentTime=0;S.videoTime=0;S.p=0;S.targetP=0;S.velocity=0;cards.forEach(el=>el.remove());cards.clear();resetMatch();stage('match');updateMusic();}
+function replay(){S.round++;videoAttempt++;clearVideoWait();stopMic();S.tween=null;S.loading=false;status();dialogs.forEach(d=>d.close());S.modal=null;const v=$('birthday-video');v.pause();v.currentTime=0;S.videoTime=0;S.p=0;S.targetP=0;S.velocity=0;cards.forEach(el=>el.remove());cards.clear();resetMatch();stage('match');updateMusic();}
 function back(){if(S.modal)return;S.round++;S.tween=null;status();S.loading=false;if(S.stage==='door'){S.p=.74+.2*(8.5/9);S.targetP=S.p;S.velocity=0;stage('ring');prefetch();}else startJourney();updateUI();}
 
 // Every touch belongs to the stage in which it began; transitions never reuse a release event.
@@ -768,13 +819,14 @@ $('retry-photo').onclick=()=>photoRetry?.();$('sound').onclick=toggleSound;$('ke
 $('wish').addEventListener('input',countWish);$('wish-form').onsubmit=e=>{e.preventDefault();wishDone(false);};$('skip-wish').onclick=()=>wishDone(true);$('enable-mic').onclick=enableMic;$('blow').onclick=blow;
 $('close-photo').onclick=closePhoto;$('full-previous').onclick=()=>{if(S.viewerIndex>0){S.viewerIndex--;updateViewer();}};$('full-next').onclick=()=>{const list=S.viewerModule==='ring'?ring:journey;if(S.viewerIndex<list.length-1){S.viewerIndex++;updateViewer();}};
 $('watch').onclick=openVideo;$('close-video').onclick=closeVideo;$('replay').onclick=replay;
-$('video-play').onclick=()=>{$('birthday-video').play().then(()=>show('video-play',false)).catch(()=>{});};
-$('watch-again').onclick=()=>{const v=$('birthday-video');v.currentTime=0;v.play().catch(()=>show('video-play',true));show('watch-again',false);};
-$('video-retry').onclick=()=>{const v=$('birthday-video');v.load();v.play().catch(()=>show('video-play',true));show('video-retry',false);};
-const video=$('birthday-video');video.addEventListener('loadedmetadata',()=>{if(S.videoTime>0)video.currentTime=S.videoTime;});
-video.addEventListener('waiting',()=>{show('video-status',true);$('video-status').textContent='Loading video…';});
-video.addEventListener('playing',()=>{show('video-status',false);show('video-play',false);show('watch-again',false);});video.addEventListener('canplay',()=>show('video-status',false));
-video.addEventListener('error',()=>{show('video-status',true);$('video-status').textContent='The video couldn’t load. Try again.';show('video-retry',true);});video.addEventListener('ended',()=>show('watch-again',true));
+$('video-play').onclick=()=>playVideo();
+$('watch-again').onclick=()=>{S.videoTime=0;$('birthday-video').currentTime=0;playVideo();};
+$('video-retry').onclick=()=>{if($('birthday-video').currentTime>0)S.videoTime=$('birthday-video').currentTime;playVideo(true);};
+const video=$('birthday-video');video.addEventListener('loadedmetadata',()=>{if(S.videoTime>0){try{video.currentTime=Math.min(S.videoTime,video.duration||S.videoTime);}catch{}}updateVisualViewport();});
+video.addEventListener('waiting',()=>{if(S.modal==='video-dialog')waitForVideo();});
+video.addEventListener('playing',()=>{if(S.modal!=='video-dialog'){video.pause();return;}clearVideoWait();show('video-status',false);show('video-play',false);show('video-retry',false);show('video-direct',false);show('watch-again',false);});
+video.addEventListener('canplay',()=>{if(S.modal==='video-dialog'){clearVideoWait();show('video-status',false);}});
+video.addEventListener('error',videoFailure);video.addEventListener('ended',()=>{clearVideoWait();show('watch-again',true);});
 for(const dialog of dialogs){dialog.addEventListener('cancel',e=>{e.preventDefault();if(dialog.id==='photo-dialog')closePhoto();if(dialog.id==='video-dialog'&&!document.fullscreenElement)closeVideo();});dialog.addEventListener('click',e=>{if(e.target!==dialog)return;const r=dialog.getBoundingClientRect();const outside=e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom;if(outside&&dialog.id==='photo-dialog')closePhoto();});}
 window.addEventListener('popstate',()=>{if(S.modal==='photo-dialog')closePhoto();else if(S.modal==='video-dialog')closeVideo();});
 window.addEventListener('pagehide',()=>{stopMic();video.pause();audio.suspend();});
@@ -790,11 +842,13 @@ function updateVisualViewport(){
     dialog.style.top=`${Math.round(Math.max(offset+12,offset+(height-h)/2))}px`;
   }
 }
-window.visualViewport?.addEventListener('resize',updateVisualViewport);
+window.visualViewport?.addEventListener('resize',()=>{scene.resize();measureRingLayout();updateVisualViewport();});
 window.visualViewport?.addEventListener('scroll',updateVisualViewport);
 
 function frame(now){
   requestAnimationFrame(frame);if(document.hidden){lastFrame=0;return;}
+  // Leave decoding and compositing resources to the native iOS video player.
+  if(S.modal==='video-dialog'){lastFrame=0;return;}
   const dt=lastFrame?Math.min((now-lastFrame)/1000,.05):0;lastFrame=now;
   const freeze=S.modal==='photo-dialog'||S.modal==='video-dialog';if(!freeze){S.time+=dt;S.elapsed+=dt;}
   if(!freeze){
